@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <section className="container-fluid gradient-custom">
+    <section className="container-fluid ">
       <div className="container">
         <div className="row d-flex justify-content-center" style={{ minHeight: "100vh" }}>
           <div className="col-12 col-md-8 col-lg-6 col-xl-5 my-auto">

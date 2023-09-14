@@ -23,7 +23,7 @@ const Breadcrumb = () => {
                   </NavLink>
                 </li>
 
-                {!params.id && (
+                {(currentRoute === `/` || currentRoute === `/post/add`) && (
                   <li className="breadcrumb-item">
                     <NavLink to="/post/add" activeclassname="active">
                       AddPost
@@ -46,8 +46,17 @@ const Breadcrumb = () => {
                     </NavLink>
                   </li>
                 )}
+
+                {currentRoute === `/profile` && (
+                  <li className="breadcrumb-item ">
+                    <NavLink to="/profile" activeclassname="active">
+                      Profile
+                    </NavLink>
+                  </li>
+                )}
               </div>
 
+              {/* Add post button */}
               {(currentRoute === `/` || currentRoute === `/post/${params.id}`) && (
                 <NavLink to="/post/add" replace={true}>
                   <i className="bi bi-plus-circle-fill text-dark add-btn" style={{ fontSize: "30px" }} title="add post"></i>

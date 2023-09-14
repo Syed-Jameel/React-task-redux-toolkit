@@ -8,7 +8,6 @@ import { selectAllPosts, selectStatus, fetchAllPostsAsync, deletePostAsync } fro
 
 const postsList = () => {
   const posts = useSelector(selectAllPosts);
-  const reversedPosts = posts?.slice(0).reverse();
   const status = useSelector(selectStatus);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,8 +27,8 @@ const postsList = () => {
         <>
           {status === "loading" ? (
             <Spinner />
-          ) : posts.length > 0 ? (
-            reversedPosts?.map((post) => (
+          ) : posts?.length > 0 ? (
+            posts?.map((post) => (
               <div key={post?._id} className="col-12 col-sm-12 col-md-6 col-lg-4 mb-4">
                 <div className="card post-card  border-0 shadow ">
                   <h6 className="card-header  card-color border-0">

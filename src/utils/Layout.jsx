@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import Breadcrumb from "./Breadcrumb";
+import { fetchUserDataByIdAsync } from "../features/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 const Layout = ({ children }) => {
+  const { userId } = JSON.parse(localStorage.getItem("user"));
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUserDataByIdAsync(userId));
+  }, [dispatch]);
+
   return (
     <div>
       <header>

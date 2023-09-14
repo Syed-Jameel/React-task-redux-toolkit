@@ -123,6 +123,46 @@ body {
   color: gray !important;
 }
 
+.user-name {
+  background-color: #051937;
+  border-top-left-radius: 0.3rem !important;
+  border-top-right-radius: 0.3rem !important;
+  color: #F5F5F5;
+}
+
+.dropdown-menu {
+  right: auto;
+  left: 0;
+  top: 130% !important;
+  border: none;
+  background-color: #F5F5F5;
+  padding: 5px;
+}
+
+.dropdown-menu .dropdown-item {
+  border-bottom: 0.025rem solid rgb(236, 230, 230);
+  cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #051937 !important;
+  color: white
+}
+
+.dropdown-menu .dropdown-item:hover .bi {
+  color: white !important;
+}
+
+.custom-link:hover {
+  color: #a8eb12 !important;
+  text-decoration: underline !important;
+}
+
+.custom-color{
+  color: #051937 !important;
+}
+
+
 @media screen and (max-width : 768px) {
   html {
     font-size: 90%;

@@ -6,16 +6,16 @@ export const validationSchema = {
   },
   password: {
     required: "password is required!",
-    // pattern: {
-    //   value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
-    //   message: `at least 8 characters,
-    //             1 uppercase letter, 1 lowercase letter, and 1 number
-    //             and can contain special characters`,
-    // },
+    pattern: {
+      value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
+      message: `at least 8 characters,
+                1 uppercase letter, 1 lowercase letter, and 1 number
+                and can contain special characters`,
+    },
   },
   fullName: {
     required: "full name is required!",
-    minLength: { value: 5, message: "full name must be at least 5 characters long!" },
+    minLength: { value: 3, message: "full name must be at least 3 characters long!" },
     maxLength: { value: 20, message: "full name cannot exceed 20 characters!" },
   },
   email: {
@@ -25,6 +25,18 @@ export const validationSchema = {
   phone: {
     required: "phone number is required!",
     pattern: { value: /^[0-9]{10}$/, message: "invalid phone number!" },
+  },
+  profileImage: {
+    required: "image is required!",
+    validate: (file) => {
+      if (file && file[0]) {
+        const fileSize = file[0].size / 1024; // Size in KB
+        if (fileSize > 1024) {
+          return "Image size must be less than 1MB";
+        }
+      }
+      return true;
+    },
   },
   gender: {
     required: "select gender!",
